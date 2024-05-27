@@ -1,0 +1,38 @@
+
+h1 {
+    margin-top:8em;
+}
+
+.root {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.table {
+    margin-top: 2em;
+    width: 80vw;
+}
+
+.table th,
+.table td {
+    border: 3px solid #ccc;
+}
+
+.edit {
+    width: 100%;
+}
+
+.delete {
+    width: 100%;
+}
+
+.edit:hover {
+    background: linear-gradient(45deg, green, lightgreen);
+}
+
+.delete:hover {
+    background: linear-gradient(45deg, red, lightcoral);
+}
+
+

@@ -1,0 +1,50 @@
+
+
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.table {
+    margin-top: 2em;
+    width: 80vw;
+}
+
+.table th,
+.table td {
+    border: 3px solid #ccc;
+}
+
+.edit {
+    width: 100%;
+}
+
+.delete {
+    width: 100%;
+}
+
+.edit:hover {
+    background: linear-gradient(45deg, green, lightgreen);
+}
+
+.delete:hover {
+    background: linear-gradient(45deg, red, lightcoral);
+}
+
+.nextbutton, .prevbutton {
+        background-color: white;
+        color: black;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        margin: 10px;
+}
+
+.nextbutton:hover, .prevbutton:hover {
+    background: linear-gradient(45deg, #ff105f, #ffad06);
+}
