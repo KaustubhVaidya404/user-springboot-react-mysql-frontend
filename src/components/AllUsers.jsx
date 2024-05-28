@@ -5,6 +5,8 @@ import { useState, useEffect } from "react"
 
 const url = "http://localhost:8080/api/v1/getall";
 
+const deleteurl = "http://localhost:8080/api/v1/delete"
+
 export default function AllUsers() {
 
     const [nextData, setNextData] = useState([]);
@@ -14,6 +16,25 @@ export default function AllUsers() {
             setNextData(response.data);
         })
     }, [])
+
+    // function deleteUser(id) {
+    //     axois.delete(deleteurl, { params: { id: id } }).then((response) => {
+    //         console.log(response.data);
+    //         setNextData(nextData.filter((data) => data.id !== id));
+    //     })
+    // }
+
+    function deleteUser(id) {
+        axois.delete(deleteurl, { params: { id: id } })
+            .then((response) => {
+                console.log(response.data);
+                setNextData(nextData.filter((data) => data.id !== id));
+            })
+            .catch((error) => {
+                console.error('Error deleting user:', error);
+            });
+    }
+
 
     return (
         <div className="root">
@@ -40,7 +61,7 @@ export default function AllUsers() {
                                         <td>{data.email}</td>
                                         <td>{data.number}</td>
                                         <td><button className="edit">Edit</button></td>
-                                        <td><button className="delete">Delete</button></td>
+                                        <td><button className="delete" onClick={() => deleteUser(data.id)}>Delete</button></td>
                                     </tr>
                                 )
                             })}
