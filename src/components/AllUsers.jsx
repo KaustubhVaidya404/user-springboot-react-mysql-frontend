@@ -2,6 +2,7 @@
 import "../styles/allusers.css"
 import axois from "axios"
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom";
 
 const url = "http://localhost:8080/api/v1/getall";
 
@@ -12,6 +13,11 @@ const getByNameUrl = "http://localhost:8080/api/v1/getByName"
 export default function AllUsers() {
 
     const [nextData, setNextData] = useState([]);
+    const navigate = useNavigate();
+
+    const navigateToCreateUser = () => {
+        navigate('/createuser');
+    }
 
     useEffect(() => {
         axois.get(url).then((response) => {
@@ -46,7 +52,7 @@ export default function AllUsers() {
         <div className="root">
             <div className="head">
                 <div className="sarchwrapper"><input type="text" onChange={searchUserByName} placeholder="search by name" className="saerchinput" /></div>
-                <div className="adduser"><button className="add">Add User</button></div>
+                <div className="adduser"><button className="add" onClick={() => {navigateToCreateUser()}}>Add User</button></div>
             </div>
             {nextData ? (
                 <table className="table">
