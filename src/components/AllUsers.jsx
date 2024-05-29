@@ -8,7 +8,7 @@ const url = "http://localhost:8080/api/v1/getall";
 
 const deleteurl = "http://localhost:8080/api/v1/delete"
 
-const getByNameUrl = "http://localhost:8080/api/v1/getByName"
+//const getByNameUrl = "http://localhost:8080/api/v1/getByName"
 
 export default function AllUsers() {
 
@@ -38,14 +38,19 @@ export default function AllUsers() {
     }
 
     function searchUserByName(e) {
-        console.log(e.target.value)
-        axois.get(getByNameUrl, { params: { name: e.target.value } })
-            .then((response) => {
-                setNextData(response.data);
-            })
-            .catch((error) => {
-                console.error('Error searching user:', error);
-            });
+        // console.log(e.target.value)
+        // console.log(nextData.find((data) => data.name === e.target.value));
+        let filteredData = nextData.filter((data) => data.name === e.target.value);
+        if(filteredData.length > 0){
+            setNextData(filteredData);  
+        }
+        // axois.get(getByNameUrl, { params: { name: e.target.value } })
+        //     .then((response) => {
+        //         setNextData(response.data);
+        //     })
+        //     .catch((error) => {
+        //         console.error('Error searching user:', error);
+        //     });
     }
 
     return (
